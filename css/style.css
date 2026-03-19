@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-@import "./fonts.css";
 
 * {
   margin: 0;
@@ -13,6 +12,7 @@ img {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -60,6 +60,7 @@ body {
   cursor: pointer;
   background: none;
   border: none;
+  color: #111;
 }
 
 /* nav */
@@ -69,12 +70,35 @@ body {
   top: 20px;
   transform: translateX(-50%);
   z-index: 150;
-  padding-bottom: 220px;
+  padding: 0 40px 220px;
+}
+
+/* 전체 드롭다운 배경 */
+.nav::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 56px;
+  transform: translateX(-50%);
+  width: 830px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.84);
+  border-radius: 28px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.nav:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .gnb {
   display: flex;
-  gap: 68px;
+  gap: 90px;
   list-style: none;
 }
 
@@ -116,22 +140,22 @@ body {
 /* sub menu */
 .sub {
   position: absolute;
-  top: 48px;
+  top: 68px;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: 185px;
-  padding: 16px 14px;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transition: all 0.28s ease;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07);
-  backdrop-filter: blur(6px);
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
-.gnb > li:hover .sub {
+.nav:hover .sub {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -287,6 +311,7 @@ body {
 .hero-next {
   right: -140px;
 }
+
 /* collection */
 .collection {
   position: relative;
@@ -328,7 +353,22 @@ body {
   position: absolute;
   width: 387px;
   height: 507px;
+  display: block;
+}
+
+.art img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.art img {
+  transition: transform 0.3s ease;
+}
+
+.art:hover img {
+  transform: scale(1.03);
 }
 
 .art1 {
@@ -417,8 +457,10 @@ body {
   height: 1770px;
 }
 
+/* poster common */
 .poster {
   position: absolute;
+  display: block;
   overflow: hidden;
   cursor: pointer;
 }
@@ -505,6 +547,11 @@ body {
   height: 594px;
 }
 
+/* poster7 잘림 보정 */
+.poster7 img {
+  object-fit: contain;
+}
+
 /* video */
 .video-section {
   width: 100%;
@@ -566,12 +613,25 @@ body {
   position: absolute;
   left: 76px;
   top: 70px;
+  display: inline-block;
 }
 
 .footer-logo img {
   width: 226px;
   height: 59px;
   object-fit: contain;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-logo:hover img {
+  opacity: 0.6;
+  transform: translateY(2px);
+}
+
+.footer-logo:active img {
+  transform: translateY(4px);
 }
 
 .footer-sns {
@@ -666,6 +726,9 @@ body {
   width: 230px;
   height: 59px;
   background: #ffffff;
+  border: none;
+  outline: none;
+  appearance: none;
   border-radius: 29.34px;
   display: flex;
   align-items: center;

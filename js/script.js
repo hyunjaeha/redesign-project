@@ -1,7 +1,7 @@
 const heroPoster = document.querySelector(".hero-poster");
 const prevBtn = document.querySelector(".hero-prev");
 const nextBtn = document.querySelector(".hero-next");
-const heroArea = document.querySelector(".img1"); // ← 여기 중요
+const heroArea = document.querySelector(".img1");
 
 const posterData = [
   {
@@ -19,61 +19,51 @@ const posterData = [
 ];
 
 let currentIndex = 0;
-let autoSlide;
+let autoSlideId = null;
 
-/* 포스터 업데이트 */
-function updatePoster() {
-  heroPoster.src = posterData[currentIndex].src;
+function renderPoster() {
+  const currentPoster = posterData[currentIndex];
+  heroPoster.src = currentPoster.src;
 }
 
-/* 다음 */
-function nextSlide() {
+function goToNextSlide() {
   currentIndex = (currentIndex + 1) % posterData.length;
-  updatePoster();
+  renderPoster();
 }
 
-/* 이전 */
-function prevSlide() {
+function goToPrevSlide() {
   currentIndex = (currentIndex - 1 + posterData.length) % posterData.length;
-  updatePoster();
+  renderPoster();
 }
 
-/* 자동 슬라이드 시작 */
 function startAutoSlide() {
-  autoSlide = setInterval(nextSlide, 3000);
+  stopAutoSlide();
+  autoSlideId = setInterval(goToNextSlide, 3000);
 }
 
-/* 자동 슬라이드 리셋 */
-function resetAutoSlide() {
-  clearInterval(autoSlide);
-  startAutoSlide();
+function stopAutoSlide() {
+  if (autoSlideId) {
+    clearInterval(autoSlideId);
+    autoSlideId = null;
+  }
 }
 
-/* 버튼 클릭 */
 nextBtn.addEventListener("click", () => {
-  nextSlide();
-  resetAutoSlide();
+  goToNextSlide();
+  startAutoSlide();
 });
 
 prevBtn.addEventListener("click", () => {
-  prevSlide();
-  resetAutoSlide();
+  goToPrevSlide();
+  startAutoSlide();
 });
 
-/* 포스터 클릭 시 링크 이동 */
 heroPoster.addEventListener("click", () => {
   window.open(posterData[currentIndex].link, "_blank");
 });
 
-/* ⭐ hover 시 멈춤 (img1 기준으로 변경됨) */
-heroArea.addEventListener("mouseenter", () => {
-  clearInterval(autoSlide);
-});
+heroArea.addEventListener("mouseenter", stopAutoSlide);
+heroArea.addEventListener("mouseleave", startAutoSlide);
 
-heroArea.addEventListener("mouseleave", () => {
-  startAutoSlide();
-});
-
-/* 시작 */
-updatePoster();
+renderPoster();
 startAutoSlide();
