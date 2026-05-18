@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>리디자인 프로젝트</title>
+    <title>국립중앙박물관 리디자인</title>
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
 
     <link
       rel="stylesheet"
@@ -32,68 +34,12 @@
 
           <nav class="nav">
             <ul class="gnb">
-              <li>
-                <a href="#">관람정보</a>
-                <ul class="sub">
-                  <li><a href="#">관람 안내</a></li>
-                  <li><a href="#">전시해설</a></li>
-                  <li><a href="#">예약하기</a></li>
-                  <li><a href="#">관람·편의시설</a></li>
-                  <li><a href="#">접근성 안내</a></li>
-                  <li><a href="#">오시는 길</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">전시</a>
-                <ul class="sub">
-                  <li><a href="#">상설 전시</a></li>
-                  <li><a href="#">특별 전시</a></li>
-                  <li><a href="#">디지털 실감 영상관</a></li>
-                  <li><a href="#">공간 오감</a></li>
-                  <li><a href="#">온라인 전시관</a></li>
-                  <li><a href="#">소속 국립박물관 전시</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">교육</a>
-                <ul class="sub">
-                  <li><a href="#">일반교육</a></li>
-                  <li><a href="#">전문교육</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">문화행사</a>
-                <ul class="sub">
-                  <li><a href="#">행사</a></li>
-                  <li><a href="#">공연</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">소장품</a>
-                <ul class="sub">
-                  <li><a href="#">큐레이터 추천 소장품</a></li>
-                  <li><a href="#">소장품 검색</a></li>
-                  <li><a href="#">국보·보물 검색</a></li>
-                  <li><a href="#">수어 동영상</a></li>
-                  <li><a href="#">소장품 열람·복제</a></li>
-                  <li><a href="#">소장품 대여 안내</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">소개</a>
-                <ul class="sub">
-                  <li><a href="#">인사말</a></li>
-                  <li><a href="#">비전과 전략</a></li>
-                  <li><a href="#">발자취</a></li>
-                  <li><a href="#">시설 소개</a></li>
-                  <li><a href="#">박물관 관련 자료</a></li>
-                </ul>
-              </li>
+              <li><a href="#">관람정보</a></li>
+              <li><a href="#">전시</a></li>
+              <li><a href="#">교육</a></li>
+              <li><a href="#">문화행사</a></li>
+              <li><a href="#">소장품</a></li>
+              <li><a href="#">소개</a></li>
             </ul>
           </nav>
 
@@ -369,19 +315,24 @@
 
         <!-- video -->
         <section class="video-section">
-          <a
-            href="https://www.youtube.com/watch?v=pVZVdXc3oq0&t=386s"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="video-thumbnail"
-          >
-            <img
-              src="assets/images/video-thumbnail.png"
-              alt="국립중앙박물관 영상 썸네일"
-              class="video-bg"
-            />
-            <img src="assets/images/text.png" alt="" class="video-text" />
-          </a>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/LBoUSwjklpU"
+              title="국립중앙박물관 홍보영상"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
         </section>
 
         <!-- footer -->

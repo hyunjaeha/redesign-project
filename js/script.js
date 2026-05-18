@@ -67,3 +67,37 @@ heroArea.addEventListener("mouseleave", startAutoSlide);
 
 renderPoster();
 startAutoSlide();
+
+//네비게이션 메뉴
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("is-open");
+
+  const isOpen = nav.classList.contains("is-open");
+  menuBtn.textContent = isOpen ? "×" : "☰";
+  menuBtn.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
+});
+
+// Scroll Fade-in Effect
+const scrollFadeItems = document.querySelectorAll(
+  ".collection-title, .exhibitions-title",
+);
+
+const scrollFadeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  },
+);
+
+scrollFadeItems.forEach((item) => {
+  scrollFadeObserver.observe(item);
+});
