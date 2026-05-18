@@ -53,7 +53,7 @@
 ## 주요 메뉴 구조
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[국립중앙박물관]
 
     A --> B[관람정보]
@@ -63,33 +63,11 @@ flowchart TD
     A --> F[소장품]
     A --> G[소개]
 
-    B --> B1[관람 안내]
-    B --> B2[예약하기]
-    B --> B3[오시는 길]
-
-    C --> C1[상설 전시]
-    C --> C2[특별 전시]
-    C --> C3[온라인 전시관]
-
-    D --> D1[일반교육]
-    D --> D2[전문교육]
-
-    E --> E1[행사]
-    E --> E2[공연]
-
-    F --> F1[큐레이터 추천 소장품]
-    F --> F2[소장품 검색]
-
-    G --> G1[인사말]
-    G --> G2[시설 소개]
-
     classDef root fill:#222222,color:#ffffff,stroke:#222222;
     classDef menu fill:#EFE7DC,color:#4A3A2A,stroke:#C8B6A6;
-    classDef detail fill:#F7F3ED,color:#5C5046,stroke:#DED1C3;
 
     class A root;
     class B,C,D,E,F,G menu;
-    class B1,B2,B3,C1,C2,C3,D1,D2,E1,E2,F1,F2,G1,G2 detail;
 ```
 
 <br/>
